@@ -1,11 +1,8 @@
 const mongoose = require("mongoose");
 
-const connectionString = `mongodb+srv://Ashish-Salve:17082001@nodeexpressprojects.r1uum.mongodb.net/03-TASK-MANAGER?retryWrites=true&w=majority`;
-
 const connectDB = (url) => {
-  return mongoose.connect(connectionString, {
-    // this object is for error/worning in the console
-    // this is for v5 and we dont need it in v6
+  mongoose.connect(url, {
+    // this is for removing deprication warnings if you are using version 6 you don't need it
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -14,3 +11,6 @@ const connectDB = (url) => {
 };
 
 module.exports = connectDB;
+
+//   .then(() => console.log("connected to the db..."))
+//   .catch((err) => console.log(err));
